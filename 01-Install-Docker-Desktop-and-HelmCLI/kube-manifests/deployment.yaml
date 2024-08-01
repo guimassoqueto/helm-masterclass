@@ -1,13 +1,14 @@
 apiVersion: apps/v1
-kind: Deployment 
+kind: Deployment
 metadata: #Dictionary
   name: myapp1-deployment
+  namespace: test
 spec: # Dictionary
   replicas: 2
   selector:
     matchLabels:
       app: myapp1
-  template:  
+  template:
     metadata: # Dictionary
       name: myapp1-pod
       labels: # Dictionary
@@ -16,6 +17,12 @@ spec: # Dictionary
       containers: # List
         - name: myapp1-container
           image: ghcr.io/stacksimplify/kubenginxhelm:0.1.0
-          ports: 
-            - containerPort: 80  
-    
+          ports:
+            - containerPort: 80
+          resources: # Dictionary
+            limits: # Dictionary
+              cpu: "500m"
+              memory: "512Mi"
+            requests: # Dictionary
+              cpu: "200m"
+              memory: "256Mi"
