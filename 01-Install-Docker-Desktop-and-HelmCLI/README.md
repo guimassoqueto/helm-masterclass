@@ -46,9 +46,9 @@ kubectl get deploy
 ## Step-07: Install Helm using Package Managers
 - [Install Helm](https://helm.sh/docs/intro/install/)
 ```t
+
 # install helm
-sudo apt-get update
-sudo apt-get install helm
+sudo snap install helm
 
 # Verify Helm version
 helm version
